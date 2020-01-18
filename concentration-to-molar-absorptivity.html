@@ -1,0 +1,20 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,z;
+d=Number(document.getElementById("text4").value);
+e=Number(document.getElementById("text5").value);
+f=Number(document.getElementById("text6").value);
+
+x= 1000*d/(e*f);
+
+document.getElementById('text98').value = x.toFixed(0);
+})
+</script>
+<p>
+Absorbance<input id="text4" value="0.84" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Concentration(mM) <input id="text5" value="0.04330" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Cell Length (cm) <input id="text6" value="1" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results</h2> <p><input id="text98" value="19400" style="text-align:center;;width:50%;color:red;font-size:25px;" readonly><a style="font-size:22px;"> mmol/L</a></p>
