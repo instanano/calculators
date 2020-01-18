@@ -1,0 +1,23 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,z;
+a=Number(document.getElementById("text1").value);
+b=Number(document.getElementById("text2").value);
+c=Number(document.getElementById("text3").value);
+
+z= a*b*c;
+x= (a*b*c)/1000;
+
+document.getElementById('text99').value = z.toFixed(2);
+document.getElementById('text98').value = x.toFixed(3);
+})
+</script>
+<p>
+Molarity (M) <input id="text1" value="0.1" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Molecular Weight<input id="text2" value="169.87" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Volume (ml) <input id="text3" value="50" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+<h2>Results</h2> <p><input id="text98" value="0.849" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> grams</a></p>
+<p><input id="text99" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> milligrams</a></p>
