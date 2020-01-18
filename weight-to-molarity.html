@@ -1,0 +1,20 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,z;
+d=Number(document.getElementById("text4").value);
+e=Number(document.getElementById("text5").value);
+f=Number(document.getElementById("text6").value);
+
+q= d/(e*f)*1000;
+
+document.getElementById('text98').value = q.toFixed(4);
+})
+</script>
+<p>
+Weight (grams) <input id="text4" value="0.849" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Molecular Weight<input id="text5" value="169.87" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Volume (ml)<input id="text6" value="50" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results</h2> <p><input id="text98" value="0.1000" style="text-align:center;color:red;font-size:25px;" readonly><a style="font-size:22px;"> M</a></p>
