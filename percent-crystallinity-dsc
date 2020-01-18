@@ -1,0 +1,18 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,d,z;
+a=Number(document.getElementById("text1").value);
+b=Number(document.getElementById("text2").value);
+c=Number(document.getElementById("text3").value);
+z= ((a-b)/c)*100; 
+document.getElementById('text99').value = z.toFixed(2);
+})
+</script>
+<p>
+Melting Enthalpy (ΔHm)<input id="text1" value="46.5" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Crystallization Enthalpy (ΔHc)<input id="text2" value="1.65" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Melting Enthalpy for 100% Crystallinity(ΔH*m)<input id="text3" value="140.1" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results</h2> <br><input id="text99" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> %</a>
