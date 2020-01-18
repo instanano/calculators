@@ -1,0 +1,18 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,z;
+a=Number(document.getElementById("text1").value);
+b=Number(document.getElementById("text2").value); c= 1000000*a/(a+b);
+z= 100*a/(a+b); document.getElementById('text3').value = c.toFixed(0);
+document.getElementById('text99').value = z.toFixed(4);
+})
+</script>
+<p>
+Mass of solute (mg)<input id="text1" value="321.3" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Mass of solvent (mg) <input id="text2" value="100000" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results:</h2>
+<input id="text3" value="3203" style="float: right;width:50%;color:red;font-size:22px" readonly><a style="font-size:22px;"> ppm</a>
+<br>
+<input id="text99" value="0.3203" style="float: right;width:50%;color:red;font-size:22px" readonly><a style="font-size:22px;"> %</a>
