@@ -1,0 +1,23 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,z;
+a=Number(document.getElementById("text1").value);
+b=Number(document.getElementById("text2").value);
+c=Number(document.getElementById("text3").value);
+
+z= c/a;
+x= b/a;
+
+document.getElementById('text99').value = z.toFixed(2);
+document.getElementById('text98').value = x.toFixed(2);
+})
+</script>
+<p>
+G Band Intensity <input id="text1" value="450" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+D Band Intensity <input id="text2" value="135" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+2D Band Intensity <input id="text3" value="820" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results</h2> <p><input id="text98" value="0.30" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> ID/IG Ratio</a></p>
+<p><input id="text99" value="1.82" style="text-align:center;font-size:25px;color:red;width:50%" readonly><a style="font-size:22px;"> I2D/IG Ratio</a></p>
