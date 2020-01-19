@@ -1,0 +1,16 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,z;
+a=Number(document.getElementById("text1").value);
+b=Number(document.getElementById("text2").value);
+c=Number(document.getElementById("text3").value); z= 1000*a/(b*c); document.getElementById('text99').value = z.toFixed(5);
+})
+</script>
+<p>
+Solution Absorbance<input id="text1" value="0.84" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Molar Absorptivity <input id="text2" value="19400" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Cell Length (cm) <input id="text3" value="1" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results</h2> <p><input id="text99" value="0.04330" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> mmol/L</a></p>
