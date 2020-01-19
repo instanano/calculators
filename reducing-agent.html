@@ -1,0 +1,20 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,d,z;
+a=Number(document.getElementById("text1").value);
+b=Number(document.getElementById("text2").value);
+c=Number(document.getElementById("text3").value);
+d=Number(document.getElementById("text4").value); 
+z= ((c)/(b/a))*d/100; document.getElementById('text99').value = z.toFixed(4);
+})
+</script>
+<p>
+Reducing Agent M.W.<input id="text1" value="32" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Precursor M.W.<input id="text2" value="182.7" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Precursor Weight (g) <input id="text3" value="1" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Reduction (in %)<input id="text4" value="50" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results</h2> <p><input id="text99" value="0.0876" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> gram</a></p>
