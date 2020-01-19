@@ -13,6 +13,6 @@ Distance between 2 bright spots (nm)<input id="text1" value="8.3" style="float: 
 <br>
 <h2>Results:</h2>
 <p>
-<input id="text3" value="0.24" style="float: right;width:50%;color:red;font-size:22px" readonly><a style="font-size:22px;"> (nm) d value</a></p>
+<input id="text3" value="0.24" style="width:50%;color:red;font-size:22px" readonly><a style="font-size:22px;"> (nm) d value</a></p>
 <p>
-<input id="text99" value="36.6" style="float: right;width:50%;color:red;font-size:22px" readonly></h6><a style="font-size:22px;"> (2θ) XRD Peak Position</a></p>
+<input id="text99" value="36.6" style="width:50%;color:red;font-size:22px" readonly></h6><a style="font-size:22px;"> (2θ) XRD Peak Position</a></p>
