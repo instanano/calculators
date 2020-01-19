@@ -1,0 +1,18 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,c,z;
+a=Number(document.getElementById("text1").value);
+c= 2/a;
+z= 0.15418/(2*Math.sin(c*11/1260)); 
+document.getElementById('text3').value = c.toFixed(2);
+document.getElementById('text99').value = z.toFixed(1);
+})
+</script>
+<p>
+Distance between 2 bright spots (nm)<input id="text1" value="8.3" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results:</h2>
+<p>
+<input id="text3" value="0.24" style="float: right;width:50%;color:red;font-size:22px" readonly><a style="font-size:22px;"> (nm) d value</a></p>
+<p>
+<input id="text99" value="36.6" style="float: right;width:50%;color:red;font-size:22px" readonly></h6><a style="font-size:22px;"> (2θ) XRD Peak Position</a></p>
