@@ -1,0 +1,23 @@
+<script>
+document.addEventListener("DOMContentLoaded",onkeyup= function add(){
+var a,b,c,z;
+a=Number(document.getElementById("text1").value);
+b=Number(document.getElementById("text2").value);
+c=Number(document.getElementById("text3").value);
+
+z= 0.1185306*a*a*((b*c)/(b+c));
+x= 0.0592653*a*a*((b*c)/(b+c));
+
+document.getElementById('text99').value = z.toFixed(1);
+document.getElementById('text98').value = x.toFixed(1);
+})
+</script>
+<p>
+FTIR Peak Position (cm-1) <input id="text1" value="3023" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Atomic Weight of 1st atom (m1)<input id="text2" value="12" style="float: right;width:40%;font-Size:18px;"></p>
+<p>
+Atomic Weight of 2nd atom (m2) <input id="text3" value="1" style="float: right;width:40%;font-Size:18px;"></p>
+<br>
+<h2>Results</h2> <p>For Single Bond<br><input id="text98" value="0.849" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> dyne/cm</a></p>
+<p>For Double Bond<br><input id="text99" value="849.35" style="text-align:center;color:red;font-size:25px;width:50%" readonly><a style="font-size:22px;"> dyne/cm</a></p>
