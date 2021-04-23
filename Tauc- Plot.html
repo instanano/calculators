@@ -1,0 +1,491 @@
+<div class='master'>
+<h2 style='color:rgba(255,255,255,0)'>Draw Tauc Plot From UV-Vis Absorbance to Calculate Direct Band Gap, Tauc Plot (Direct Forbidden Transitions), Indirect Band Gap, Tauc Plot (indirect Forbidden Transitions)</h2>
+<div class='sub1'>
+<div class='graphcalc'>
+<div id='table'>
+<p style="font-size:14px;margin:5px;line-height:1.7"><b>Online Tauc Plot:</b> Copy UV-Vis Absorbance Data From Excel File and Paste in TextBox Here...</p>
+<textarea id='dinput'>
+200&#09;0.010
+210&#09;0.011
+220&#09;0.011
+230&#09;0.011
+240&#09;0.011
+250&#09;0.011
+260&#09;0.013
+270&#09;0.013
+280&#09;0.013
+290&#09;0.035
+300&#09;0.140
+310&#09;0.425
+320&#09;0.820
+330&#09;1.152
+340&#09;0.802
+350&#09;0.423
+360&#09;0.123
+370&#09;0.040
+380&#09;0.020
+390&#09;0.020
+400&#09;0.020
+410&#09;0.020
+420&#09;0.015
+430&#09;0.013
+440&#09;0.010
+450&#09;0.010
+460&#09;0.010
+470&#09;0.010
+480&#09;0.010
+490&#09;0.010
+500&#09;0.010
+510&#09;0.010
+520&#09;0.010
+530&#09;0.010
+540&#09;0.010
+550&#09;0.010
+560&#09;0.010
+570&#09;0.010
+580&#09;0.010
+590&#09;0.010
+600&#09;0.010
+</textarea>
+</div>
+
+<div id='chartdiv0'><p style="font-size:14px;margin:5px;line-height:1.7;font-weight:bold">Raw Graph Preview</p></div>
+<div class='downloadimg' style="width:100%;zoom: 0.2;">  
+</div>
+</div>  
+</div>
+  
+<div class='sub2'>
+<div class='graphcalc'>
+<div style='display:flex;justify-content:space-between;margin-top:5px'>
+<button onclick='drawChart(getData())'>Direct Band Gap</button>
+<button onclick='drawChart(getData2())'>Direct Forbidden Transitions</button>
+<button onclick='drawChart(getData3())'>Indirect Band Gap</button>
+<button onclick='drawChart(getData4())'>Indirect Forbidden Transitions</button>
+</div>
+
+<div class='graphcalc'>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event,'tab1')" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openCity(event,'tab2')">Line</button>
+  <button class="tablinks" onclick="openCity(event,'tab3')">Other</button>
+  <button class="tablinks" onclick="openCity(event,'tab4')">Download</button>
+</div>
+
+<div id="tab1" class="tabcontent">
+<div style='display:inline-block'>
+<a style='font-size:11px;'>Color</a><br>
+<input type="color" id="setcolor"></div>
+<div style='display:inline-block'>
+<a style='font-size:11px;'>Font Size</a><br>
+<button id="infont">A↟</button>
+<button id="defont">A↡</button>
+</div>
+<button id='addtext'>Add Text</button>
+<button id='remove'>Remove</button>
+</div>
+
+<div id="tab2" class="tabcontent">
+<div style='display:inline-block'>
+<a style='font-size:11px;'>Color</a><br>
+<input type="color" id="lcolor" value='#00008B'></div>
+<div style='display:inline-block'>
+<a style='font-size:11px;'>Thickness</a><br>
+<input type="number" id="lwidth" min="1" max="200" value='6'></div>
+</div>
+
+<div id="tab3" class="tabcontent">
+<a>More Featured Coming Soon..</a>
+</div>
+
+<div id="tab4" class="tabcontent">
+<button id='download'>Download Graph</button>
+</div>
+  
+<div id='chartdiv'></div>
+</div>
+  
+</div>
+</div>
+
+<p style="font-size:10px;position:fixed;bottom:0;right:0;z-index:9;margin:5px"><b>NOTE:</b> Works best on Google Chome. If graph showing bigger then resize your window into small size.</p>
+  
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/instanano/INPlotter/download-v1.2.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/instanano/INPlotter/drag_v1.0.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/instanano/INPlotter/getdata-v1.0.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/instanano/INPlotter/addtext-v1.3.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/instanano/INPlotter/frobj-v1.4.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/instanano/INPlotter/tab-v1.0.js"></script>
+<script>
+document.getElementById('dinput').addEventListener('paste', function (e) {
+document.getElementById('dinput').addEventListener('input', function () {
+d3.selectAll('svg').remove();
+drawChart0(getData0());
+drawChart(getData());
+});});
+
+function getData0(){ 
+data1 = mainData();
+return data1};
+
+function drawChart0(data) {
+var coreheight = 720
+var corewidth = 1280
+var margin = {top: 10, right: 30, bottom: 120, left: 60}
+, width = corewidth - margin.left - margin.right
+, height = coreheight - margin.top - margin.bottom;
+
+var xExtent = d3.extent(data, function(d) { return d.x; }),
+xRange = xExtent[1] - xExtent[0],
+yExtent = d3.extent(data, function(d) { return d.y; }).reverse(),
+yRange = yExtent[1] - yExtent[0];
+
+var xScale = d3.scaleLinear().range([50, width]).domain([xExtent[0] - (xRange * .05), xExtent[1] + (xRange * .05)]);;
+var yScale = d3.scaleLinear().range([0, height]).domain([yExtent[0] - (yRange * .1), yExtent[1] + (yRange * .05)]);;
+
+var line = d3.line()
+ .x(function(d, x) { return xScale(d.x); })
+ .y(function(d, y) { return yScale(d.y); })
+ .curve(d3.curveMonotoneX);
+
+d3.select('#chartdiv0')
+ .append('svg')
+ .attr('class','graph0')
+ .style('background-color','#fff')
+ .attr("viewBox", "0 0 "+ corewidth +" "+ coreheight +"")
+ 
+var svg = d3.select(".graph0")
+ .append("g")
+ .attr("class", "dchart0")
+ .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+ .attr("class", "y axis")
+ .call(d3.axisLeft(yScale).ticks(7))
+ .attr("transform", "translate(50, 0)")
+ .attr('font-size','25px');
+
+svg.append("g")
+ .attr("class", "x axis")
+ .attr("transform", "translate(0," + height + ")")
+ .call(d3.axisBottom(xScale).ticks(7))
+ .attr('font-size','25px');
+
+svg.append("path")
+ .datum(data)
+ .attr("class", "line")
+ .attr("d", line);
+ 
+d3.select('.dchart0')
+ .append('foreignObject')
+ .attr('x', width*0.4)
+ .attr('y', height+(height*0.07))
+ .attr("width", "100%")
+ .attr("height", "100%")
+ .append('xhtml:div')
+ .attr("contentEditable", true)
+ .html('Wavelength(nm)')
+ .style('font-size','30px')
+ .style('width','fit-content')
+
+var gtitle = d3.select('.dchart0').append("g")
+ gtitle.append('foreignObject')
+ .attr('x', width - 200)
+ .attr('y', 15)
+ .attr("width", "100%")
+ .attr("height", "100%")
+ .append('xhtml:div')
+ .attr("contentEditable", true)
+ .html("<a style='color:darkblue'>♦</a> Raw Plot")
+ .style('font-size','30px')
+ .style('width','fit-content')
+
+d3.selectAll('.line')
+ .style("fill", "none")
+ .style('stroke','darkblue')
+ .style('stroke-width','6');
+d3.selectAll('.dot')
+ .style("fill", "darkblue");
+
+}drawChart0(getData0());
+
+
+function getData() {
+d3.select('.graph').remove();
+const data2 = mainData().map(({x,y}) => ({ x: (1240/x), y: Math.pow(2.303*x*y,2)}));
+return data2;};
+function getData2() {
+d3.select('.graph').remove();
+const data3 = mainData().map(({x,y}) => ({ x: (1240/x), y: Math.pow(2.303*x*y,1.5)}));
+return data3;};
+function getData3() {
+d3.select('.graph').remove();
+const data4 = mainData().map(({x,y}) => ({ x: (1240/x), y: Math.pow(2.303*x*y,0.5)}));
+return data4;};
+function getData4() {
+d3.select('.graph').remove();
+const data5 = mainData().map(({x,y}) => ({ x: (1240/x), y: Math.pow(2.303*x*y,0.333)}));
+return data5;};
+
+function drawChart(data) {
+var coreheight = 720
+var corewidth = 1280
+var margin = {top: 10, right: 30, bottom: 120, left: 60}
+, width = corewidth - margin.left - margin.right
+, height = coreheight - margin.top - margin.bottom;
+
+var xExtent = d3.extent(data, function(d) { return d.x; }),
+xRange = xExtent[1] - xExtent[0],
+yExtent = d3.extent(data, function(d) { return d.y; }).reverse(),
+yRange = yExtent[1] - yExtent[0];
+
+var xScale = d3.scaleLinear().range([50, width]).domain([xExtent[0] - (xRange * .05), xExtent[1] + (xRange * .05)]);;
+var yScale = d3.scaleLinear().range([0, height]).domain([yExtent[0] - (yRange * .1), 0]);;
+
+var line = d3.line()
+ .x(function(d, x) { return xScale(d.x); })
+ .y(function(d, y) { return yScale(d.y); })
+ .curve(d3.curveMonotoneX);
+
+d3.select('#chartdiv')
+ .append('svg')
+ .attr('class','graph')
+ .style('background-color','#fff')
+ .attr("viewBox", "0 0 "+ corewidth +" "+ coreheight +"")
+ .on('dblclick', function(){if(lastIndex > -1) { createpeak(data[lastIndex]); } })
+ .on("mousemove", mousemove);
+
+var svg = d3.select(".graph")
+ .append("g")
+ .attr("class", "dchart")
+ .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+ .attr("class", "y axis")
+ .call(d3.axisLeft(yScale).ticks(7).tickFormat(d3.format(".0s")))
+ .attr("transform", "translate(50, 0)")
+ .attr('font-size','25px');
+
+svg.append("g")
+ .attr("class", "x axis")
+ .attr("transform", "translate(0," + height + ")")
+ .call(d3.axisBottom(xScale).ticks(7))
+ .attr('font-size','25px');
+
+svg.append("path")
+ .datum(data)
+ .attr("class", "line")
+ .attr("d", line);
+
+d3.select('.dchart').append("g")
+ .append('foreignObject')
+ .call(d3.drag().on("start", dragstarted).on("drag", dragged))
+ .attr('class','frobj')
+ .attr('x', - width*0.04)
+ .attr('y', height*0.35)
+ .attr("width", "41px")
+ .attr("height", "276px")
+ .append('xhtml:div')
+ .attr('class','frdiv')
+ .attr('id','tyaxis')
+ .style("cursor", "move")
+ .attr("contentEditable", true)
+ .html('(ahv)^x (a.u.)')
+ .style('font-size','30px')
+ .style("transform", "rotate(180deg)")
+ .style("writing-mode", "vertical-rl")
+ .style('width','fit-content')
+ .on("contextmenu", function(data,index){d3.event.preventDefault()});
+ 
+d3.select('.dchart').attr('font-family','sans-serif').append("g")
+ .append('foreignObject')
+ .call(d3.drag().on("start", dragstarted).on("drag", dragged))
+ .attr('class','frobj')
+ .attr('x', width*0.4)
+ .attr('y', height+(height*0.07))
+ .attr("width", "201px")
+ .attr("height", "36px")
+ .append('xhtml:div')
+ .attr('class','frdiv')
+ .attr('id','txaxis')
+ .style("cursor", "move")
+ .attr("contentEditable", true)
+ .html('Energy(eV)')
+ .style('font-size','30px')
+ .style('width','fit-content')
+ .on("contextmenu", function(data,index){d3.event.preventDefault()});
+
+d3.select('.dchart').append("g")
+ .append('foreignObject')
+ .call(d3.drag().on("start", dragstarted).on("drag", dragged))
+ .attr('class','frobj')
+ .attr('x', width - 200)
+ .attr('y', 15)
+ .attr("width", "144px")
+ .attr("height", "37px")
+ .append('xhtml:div')
+ .attr('class','frdiv')
+ .attr("contentEditable", true)
+ .style("cursor", "move")
+ .html("<a id='labelcolor' style='color:darkblue'>◼</a> Raw Plot")
+ .style('font-size','30px')
+ .style('width','fit-content')
+ .on("contextmenu", function(data,index){d3.event.preventDefault()});
+
+var lastIndex = -1;
+function mousemove(){
+ let x = d3.mouse(this)[0];
+ let closest = data.reduce((best, value, i) => {
+  let absx = Math.abs(xScale(value.x) - x + 60) 
+  if(absx < best.value) {
+   return {index: i, value:absx};
+  }
+  else{
+   return best;
+  }
+  }, {index:0, value:Number.MAX_SAFE_INTEGER});  
+  d3.selectAll('.annot').remove();
+  lastIndex = closest.index;
+  mousehover(data[closest.index]);
+};
+
+function mousehover(d) { 
+   svg.append("text")
+    .attr('class','annot')
+    .attr('x', xScale(d.x) - 55)
+    .attr('y', height+(height*0.19))
+    .text(d3.format(",.3f")(d.x)+', '+d3.format(",.0f")(d.y))
+    .style('font-size','30px')
+    .style("fill", "red")
+   svg.append('line')
+    .attr('class','annot')
+    .style("stroke", "red")
+    .attr('stroke-width','3')
+    .attr("x1", xScale(d.x))
+   .attr("y1", yScale(d.y))
+    .attr("x2", xScale(d.x))
+    .attr("y2", height);
+    };
+
+var i = 1;
+var m = 1;
+var o = 1;
+function createpeak(d) {
+    var grp = svg.append("g").on("mouseover",function(){
+    			$('foreignObject').on('click', function() {
+                $('foreignObject').removeClass("dhe");
+ 				$(this).addClass('dhe')
+   				})})
+      grp.append('foreignObject')
+      .call(d3.drag().on("start", dragstarted).on("drag", dragged))
+      .attr('id','peak'+i++)
+      .attr('class','frobj')
+      .attr('x', xScale(d.x) - 35)
+      .attr('y', yScale(d.y) - 50)
+      .attr("width", "100px")
+      .attr("height", "56px")
+      .style("cursor", "move")
+      .append('xhtml:div')
+      .attr('id','dpeak'+o++)
+      .attr('class','frdiv')
+      .attr("contentEditable", true)
+      .style("cursor", "move")
+      .html(d3.format(",.3f")(d.x))
+      .style('font-size','30px')
+      .style('display','inline-block')
+      .style("background", "#fff")
+      .style("text-align", "center")
+      .on("contextmenu", function(data,index){d3.event.preventDefault()})   
+     grp.append('line')
+      .style("stroke", "black")
+      .attr('id','line'+m++)
+      .attr('stroke-width','3')
+      .attr("x1", xScale(d.x))
+      .attr("y1", yScale(d.y))
+      .attr("x2", xScale(d.x))
+      .attr("y2", yScale(d.y) - 17)
+     };
+
+d3.selectAll('.line')
+ .style("fill", "none")
+ .style('stroke','darkblue')
+ .style('stroke-width','6');
+
+}drawChart(getData());
+</script>
+
+<script>
+$('foreignObject').on('click', function() {
+ $('foreignObject').removeClass("dhe");
+ $(this).addClass('dhe')
+});
+
+$('#remove').click( function(){
+$('.dhe').parent('g').remove();
+});
+
+$('#setcolor').on('input', function(){
+$('.dhe').children('div').css('color', $('#setcolor').val())
+});
+
+$('#infont').on('click', function(){
+ var fontSize = parseInt($('.dhe').children('div').css("font-size"));
+ fontSize = fontSize + 1 + "px";
+ $('.dhe').children('div').css({'font-size': fontSize});
+});
+
+$('#defont').on('click', function(){
+ var fontSize = parseInt($('.dhe').children('div').css("font-size"));
+ fontSize = fontSize - 1 + "px";
+ $('.dhe').children('div').css({'font-size': fontSize});
+});
+
+$('#lwidth').on('input', function(){
+$('.line').css('stroke-width', $('#lwidth').val());
+});
+
+$('#lcolor').on('input', function(){
+$('.line').css('stroke', $('#lcolor').val());
+$('#labelcolor').css('color', $('#lcolor').val());
+});
+
+$( document ).ready(function() {
+$('#setfont').val(30);
+});
+
+$(document).click(function(){
+var ctx = document.createElement('canvas').getContext('2d');
+ctx.strokeStyle = $('.dhe').children('div').css('color');
+var hexColor = ctx.strokeStyle;
+$('#setcolor').val(hexColor);
+})
+
+</script>
+
+<style>
+.graphcalc{margin-bottom:0px !important;}
+.logo{width:170px}
+.canimg{width:100%}
+.graph{height:calc(100vh - 255px);width:100%}
+.master{position:fixed;left:0;right:0;bottom:0;top:0;z-index:8;background:linear-gradient(to right, #1fc59f, #9DDA3E)}
+.sub1{display:inline-flex;width:24%;height:calc(100vh - 70px);position:absolute;top:70px;background:#fff}
+.sub2{width:75%;float:right;position:absolute;top:70px;right:0;background: #fff;height:100%}
+.rightbar{display:none}
+.dtextp:focus{outline:0px solid transparent}
+#dinput{tab-size:12;padding-left:5px;border-width:2px;height: 10vw;}
+#chartdiv0{}
+#table{display:grid}
+.graphcalc{background:#fff;padding:10px;margin-bottom:20px;overflow:scroll}
+.dhe{border:1px solid green}
+.dhe::after{content: "Selected";color:green} 
+[contenteditable] {outline:0}
+#linesetting{border:1px solid green;padding:12px;display:inline-block;position:relative}
+.post-body{color:#333}
+.tab{overflow:hidden;background-color:#f1f1f1;padding:5px}
+.tab button{background-color:inherit;float:left;border:none;outline:none;cursor:pointer;padding:5px 10px;transition:0.3s;font-size:17px}
+.tab button:hover{background-color:#ddd}
+.tab button.tactive{box-shadow:inset 0px -5px 0px 0px darkblue;font-weight:bold}
+.tabcontent{display:none;padding:15px 20px 20px 20px;border-top:none;background-color:#f1f1f1}
+</style>
