@@ -1,0 +1,254 @@
+<noscript><img src="https://raw.githubusercontent.com/instanano/fimg/master/reference.png"/></noscript>
+<h2>UV-Vis Spectroscopy Open Source Reference Data Library for Nanoparticles</h2>
+<div style='background:#fff;border-radius:10px;padding:10px'>
+<a style='font-size:12px'>Paste your Excel data in blue box and search for UV-Vis reference</a><br>
+<textarea id='dinput' style='width:20%;color:blue;border-width:2px;height:75px'>
+100	0.12
+200	0.11
+300	0.12
+400	0.41
+500	0.12
+600	0.11
+700	0.12
+800	0.11
+</textarea>
+
+<div style="width:78%;height:85px;float:right;background:#eee">
+<input type="text" placeholder='Search here...' style='width:35%;position:relative;top:25%;margin:1.5%;font-size:16px'>
+<select id="peaks" name="cars" size="5" style='border: 2px solid #eee;height:100%;float:right;width:60%'>
+
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='-100' h4='0' p5='-100' h5='0' p6='170' h6='0' p7='-100' h7='00' p8='-100' h8='0' p9='-100' h9='0' p10='170' h10='0'>Graphene Oxide [GO]</option>
+
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='-100' h4='0' p5='-100' h5='0' p6='220' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='220' h10='0'>reduced Graphene Oxide [rGO] or Graphene</option>
+
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='420' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='420' h10='0'>Silver [Ag] Nanoparticles</option>
+
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='560' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='560' h10='0'>Gold [Au] Nanoparticles</option>
+  
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='-100' h4='0' p5='610' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='610' h10='0'>Copper [Cu] Nanoparticles</option>
+  
+<option p1='300' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='-100' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='280' h10='0'>Copper (II) Oxide [CuO] Nanoparticles</option>
+  
+<option p1='450' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='-100' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='450' h10='0'>Copper (I) Oxide [Cu2O] Nanoparticles</option>
+
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='190' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='190' h10='0'>Nickel [Ni] Nanoparticles</option>
+
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='320' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='320' h10='0'>Nickel Oxide [NiO] Nanoparticles</option>
+  
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='-100' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='360' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='360' h10='0'>Nickel Hydroxide [Ni(OH)2] Nanoparticles</option>
+  
+<option p1='-200' h1='0' p2='-100' h2='0' p3='320' h3='0' p4='-100' h4='0' p5='-100' h5='0' p6='-100' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='330' h10='0'>Zinc Oxide [ZnO] Nanoparticles</option>
+
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='-100' h4='0' p5='180' h5='0' p6='-100' h6='0' p7='380' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='180' h10='0'>Silica or Silicon Dioxide [SiO2] Nanoparticles</option>
+  
+<option p1='-200' h1='0' p2='-100' h2='0' p3='-100' h3='0' p4='350' h4='0' p5='-100' h5='0' p6='350' h6='0' p7='-100' h7='0' p8='-100' h8='0' p9='-100' h9='0' p10='340' h10='0'>Iron Oxide [Fe3O4] Nanoparticles</option>
+
+</select>
+</div>
+
+<div style='position:relative'>
+<div id='chartdiv'></div>
+<div style='position:relative'>
+<svg viewBox="0 0 900 100" style='background:#eee;margin:0 27px 0 12px'>
+<line id='peak1' x1="-100" y1="100" x2="-100" y2="0" style="stroke:#FFB6C1;stroke-width:200"/>
+<line id='peak2' x1="-100" y1="100" x2="-100" y2="0" style="stroke:#FFB6C1;stroke-width:150"/>
+<line id='peak3' x1="-100" y1="100" x2="-100" y2="0" style="stroke:#FFB6C1;stroke-width:125"/>
+<line id='peak4' x1="-100" y1="100" x2="-100" y2="0" style="stroke:#FFB6C1;stroke-width:100"/>
+<line id='peak5' x1="-100" y1="100" x2="-100" y2="0" style="stroke:#FFB6C1;stroke-width:75"/>
+<line id='peak6' x1="-100" y1="100" x2="-100" y2="0" style="stroke:#FFB6C1;stroke-width:50"/>
+<line id='peak7' x1="-100" y1="100" x2="-100" y2="0" style="stroke:#FFB6C1;stroke-width:30"/>
+<line id='peak8' x1="-100" y1="100" x2="-100" y2="0" style="stroke:red;stroke-width:5"/>
+<line id='peak9' x1="-100" y1="100" x2="-100" y2="0" style="stroke:red;stroke-width:5"/>
+<line id='peak10' x1="-100" y1="100" x2="-100" y2="0" style="stroke:red;stroke-width:5"/>
+</svg>
+</div>
+</div>
+<br><br><a style="color:#000;font-size:14px;">NOTE: Red line means that peaks should most probably appear here. Light-Red area means that peak might also appear there depending on particles size and functionalization.</a><br>
+<br><a style="color:darkred;font-size:14px;" href="https://www.instanano.com/2017/01/uv-vis-spectroscopy-band-gap-calculator.html">For UV-Vis Band Gap Calculator: Click Here...</a><br>
+<a style="color:darkred;font-size:14px;" href="https://www.instanano.com/2017/01/Concentration-Calculation-UV-Vis-Absorbance.html">For UV-Vis Concentration Calculator: Click Here...</a>
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+document.getElementById('dinput').addEventListener('paste', function (e) {
+document.getElementById('dinput').addEventListener('input', function () {
+d3.selectAll('.graph').remove();
+drawChart(getData());
+drawChart2(getData2());
+});});
+function mainData(){
+var data = document.getElementById('dinput').value.trim().split('\n').map(line => {
+let tokens = line.trim().split(/\s+/).map(str => Number(str, 10));
+return { x: tokens[0], y: tokens[1] }
+});return data;};
+
+function getData(){ 
+data1 = mainData();
+return data1};
+function drawChart(data) {
+var xExtent = d3.extent(data, function(d) { return d.x; }),
+xRange = xExtent[1] - xExtent[0],
+yExtent = d3.extent(data, function(d) { return d.y; }).reverse(),
+yRange = yExtent[1] - yExtent[0];
+var xScale = d3.scaleLinear().range([20, 1235]).domain([100, 800]);
+var yScale = d3.scaleLinear().range([0, 415]).domain([yExtent[0] - (yRange * .1), yExtent[1] + (yRange * .05)]);
+
+var line = d3.line()
+.x(function(d, x) { return xScale(d.x); })
+.y(function(d, y) { return yScale(d.y); })
+.curve(d3.curveMonotoneX);
+
+d3.select('#chartdiv')
+.append('svg')
+.attr('class','graph')
+.attr("viewBox", "0 0 1280 450");
+
+var svg = d3.select(".graph")
+.append("g")
+.attr("class", "dchart")
+.attr("transform", "translate(0, 0)");
+
+svg.append("g")
+.attr("class", "x axis")
+.attr("transform", "translate(0, 415)")
+.call(d3.axisBottom(xScale).ticks(20))
+.attr('font-size','25px');
+ 
+d3.select('.dchart')
+.append('text')
+.text('2θ')
+.attr('x', 1210)
+.attr('y', 660)
+.style('font-size','40px');
+
+svg.append("g")
+.attr("class", "y axis")
+.call(d3.axisLeft(yScale).ticks(1))
+.attr("transform", "translate(20, 0)")
+.attr('font-size','0px');
+
+svg.append("path")
+.datum(data)
+.attr("class", "line")
+.attr("d", line);
+
+var i=1;
+var m=1;
+svg.selectAll(".dot")
+.data(data)
+.enter()
+.append("circle")
+.attr("class", "dot")
+.attr("cx", function(d) { return xScale(d.x) })
+.attr("cy", function(d) { return yScale(d.y) })
+.attr("r", 3)
+.on("mouseover", function(d) { 
+svg.append("text")
+.attr('class','annot')
+.attr('x', xScale(d.x) - 20)
+.attr('y', yScale(d.y) - 10)
+.text(d.x)
+.style('font-size','30px')
+svg.append('line')
+.attr('class','annot')
+.style("stroke", "black")
+.attr('stroke-width','3')
+.attr("x1", xScale(d.x))
+.attr("y1", yScale(d.y))
+.attr("x2", xScale(d.x))
+.attr("y2", 750);
+})
+.on("mouseout", function() {  
+d3.selectAll('.annot').remove()
+})    
+}drawChart(getData());
+</script>
+
+<style>
+.line {fill:none;stroke:blue;stroke-width:3}
+.dot {fill: darkblue;stroke-width:0}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+jQuery.fn.filterByText = function(textbox) {
+return this.each(function() {
+var select = this;
+var options = [];
+$(select).find('option').each(function() {
+options.push({
+value: $(this).val(),
+text: $(this).text(),
+p1: $(this).attr('p1'),
+h1: $(this).attr('h1'),
+p2: $(this).attr('p2'),
+h2: $(this).attr('h2'),
+p3: $(this).attr('p3'),
+h3: $(this).attr('h3'),
+p4: $(this).attr('p4'),
+h4: $(this).attr('h4'),
+p5: $(this).attr('p5'),
+h5: $(this).attr('h5'),
+p6: $(this).attr('p6'),
+h6: $(this).attr('h6'),
+p7: $(this).attr('p7'),
+h7: $(this).attr('h7'),
+p8: $(this).attr('p8'),
+h8: $(this).attr('h8'),
+p9: $(this).attr('p9'),
+h9: $(this).attr('h9'),
+p10: $(this).attr('p10'),
+h10: $(this).attr('h10'),
+});});
+$(select).data('options', options);
+
+$(textbox).bind('change keyup', function() {
+var options = $(select).empty().data('options');
+var search = $.trim($(this).val());
+var regex = new RegExp(search, "gi");
+
+$.each(options, function(i) {
+var option = options[i];
+if (option.text.match(regex) !== null) {
+$(select).append(
+$('<option>').text(option.text).attr('p1', option.p1).attr('h1', option.h1).attr('p2', option.p2).attr('h2', option.h2).attr('p3', option.p3).attr('h3', option.h3).attr('p4', option.p4).attr('h4', option.h4).attr('p5', option.p5).attr('h5', option.h5).attr('p6', option.p6).attr('h6', option.h6).attr('p7', option.p7).attr('h7', option.h7).attr('p8', option.p8).attr('h8', option.h8).attr('p9', option.p9).attr('h9', option.h9).attr('p10', option.p10).attr('h10', option.h10)
+);}});});});};
+
+$(function() {
+$('select').filterByText($('input'));
+});
+
+$('#peaks').on('click, change', function() {
+var pp1 = $(this).find(':selected').attr('p1');
+var hh1 = $(this).find(':selected').attr('h1');
+var pp2 = $(this).find(':selected').attr('p2');
+var hh2 = $(this).find(':selected').attr('h2');
+var pp3 = $(this).find(':selected').attr('p3');
+var hh3 = $(this).find(':selected').attr('h3');
+var pp4 = $(this).find(':selected').attr('p4');
+var hh4 = $(this).find(':selected').attr('h4');
+var pp5 = $(this).find(':selected').attr('p5');
+var hh5 = $(this).find(':selected').attr('h5');
+var pp6 = $(this).find(':selected').attr('p6');
+var hh6 = $(this).find(':selected').attr('h6');
+var pp7 = $(this).find(':selected').attr('p7');
+var hh7 = $(this).find(':selected').attr('h7');
+var pp8 = $(this).find(':selected').attr('p8');
+var hh8 = $(this).find(':selected').attr('h8');
+var pp9 = $(this).find(':selected').attr('p9');
+var hh9 = $(this).find(':selected').attr('h9');
+var pp10 = $(this).find(':selected').attr('p10');
+var hh10 = $(this).find(':selected').attr('h10');
+$("#peak1").attr("x1", pp1).attr("x2", pp1).attr("y2", hh1);
+$("#peak2").attr("x1", pp2).attr("x2", pp2).attr("y2", hh2);
+$("#peak3").attr("x1", pp3).attr("x2", pp3).attr("y2", hh3);
+$("#peak4").attr("x1", pp4).attr("x2", pp4).attr("y2", hh4);
+$("#peak5").attr("x1", pp5).attr("x2", pp5).attr("y2", hh5);
+$("#peak6").attr("x1", pp6).attr("x2", pp6).attr("y2", hh6);
+$("#peak7").attr("x1", pp7).attr("x2", pp7).attr("y2", hh7);
+$("#peak8").attr("x1", pp8).attr("x2", pp8).attr("y2", hh8);
+$("#peak9").attr("x1", pp9).attr("x2", pp9).attr("y2", hh9);
+$("#peak10").attr("x1", pp10).attr("x2", pp10).attr("y2", hh10);
+});});
+</script>
