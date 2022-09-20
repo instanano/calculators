@@ -47,6 +47,9 @@
 590&#09;0.010
 600&#09;0.010
 </textarea>
+<br>Tauc Plot Data<br>
+<textarea id="txta">
+</textarea>
 </div>
 
 <div id='chartdiv0'><p style="font-size:14px;margin:5px;line-height:1.7;font-weight:bold">Raw Graph Preview</p></div>
@@ -58,10 +61,10 @@
 <div class='sub2'>
 <div class='graphcalc'>
 <div style='display:flex;justify-content:space-between;margin-top:5px'>
-<button onclick='drawChart(getData())'>Direct Band Gap</button>
-<button onclick='drawChart(getData2())'>Direct Forbidden Transitions</button>
-<button onclick='drawChart(getData3())'>Indirect Band Gap</button>
-<button onclick='drawChart(getData4())'>Indirect Forbidden Transitions</button>
+<button onclick='document.getElementById("txta").innerHTML = getData().map(o => `${o.x}	${o.y}`).join("\n");drawChart(getData());'>Direct Band Gap</button>
+<button onclick='document.getElementById("txta").innerHTML = getData2().map(o => `${o.x}	${o.y}`).join("\n");drawChart(getData2())'>Direct Forbidden Transitions</button>
+<button onclick='document.getElementById("txta").innerHTML = getData3().map(o => `${o.x}	${o.y}`).join("\n");drawChart(getData3())'>Indirect Band Gap</button>
+<button onclick='document.getElementById("txta").innerHTML = getData4().map(o => `${o.x}	${o.y}`).join("\n");drawChart(getData4())'>Indirect Forbidden Transitions</button>
 </div>
 
 <div class='graphcalc'>
@@ -474,7 +477,7 @@ $('#setcolor').val(hexColor);
 .sub2{width:75%;float:right;position:absolute;top:70px;right:0;background: #fff;height:100%}
 .rightbar{display:none}
 .dtextp:focus{outline:0px solid transparent}
-#dinput{tab-size:12;padding-left:5px;border-width:2px;height: 10vw;}
+#dinput,#txta{tab-size:12;padding-left:5px;border-width:2px;height: 10vw;}
 #chartdiv0{}
 #table{display:grid}
 .graphcalc{background:#fff;padding:10px;margin-bottom:20px;overflow:scroll}
